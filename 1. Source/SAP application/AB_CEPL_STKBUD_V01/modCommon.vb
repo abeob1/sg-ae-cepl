@@ -2249,5 +2249,10 @@ Module modCommon
 
     End Function
 
+    Public Function GetDateTimeValue(ByVal DateString As String) As DateTime
+        Dim objBridge As SAPbobsCOM.SBObob
+        objBridge = p_oDICompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoBridge)
+        Return objBridge.Format_StringToDate(DateString).Fields.Item(0).Value
+    End Function
 
 End Module

@@ -87,3 +87,12 @@
 [06/24/2016 19:37:28][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
 [06/24/2016 19:37:33][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
 [06/24/2016 19:37:47][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/27/2016 17:53:08][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/27/2016 19:25:56][             SBO_Application_ItemEvent()] Job Site Field. Cannot be Blank!.
+[06/27/2016 19:26:14][             SBO_Application_ItemEvent()] Prepared By ID Field. Cannot be Blank!.
+[06/27/2016 19:35:11][               Display_PurchaseRequest()] Data Source - Bad Data Source Offset
+[06/27/2016 19:35:11][             SBO_Application_ItemEvent()] Data Source - Bad Data Source Offset
+[06/28/2016 10:45:46][                    DuplicateJobSchedule] Valid Value - Value does not Exist  [66000-62]
+[06/28/2016 10:45:46][             SBO_Application_MenuEvent()] Valid Value - Value does not Exist  [66000-62]
+[06/28/2016 11:01:36][             SBO_Application_ItemEvent()] Conversion from string "20160810" to type 'Date' is not valid.
+[06/28/2016 11:04:57][             SBO_Application_ItemEvent()] Conversion from string "" to type 'Date' is not valid.

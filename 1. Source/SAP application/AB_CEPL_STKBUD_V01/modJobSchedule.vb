@@ -1253,6 +1253,7 @@ Module modJobSchedule
 
         Dim oCombo As SAPbouiCOM.ComboBox
         Dim oRs As SAPbobsCOM.Recordset
+        Dim oEdit As SAPbouiCOM.EditText
         Dim sQueryString As String = String.Empty
         Dim sDocEntry As String = String.Empty
 
@@ -1272,15 +1273,17 @@ Module modJobSchedule
             'sQueryString += " update [@AB_JOBSCH3] set U_TaskStatus = (CASE WHEN U_TaskStatus ='Open' THEN 'Canceled' ELSE U_TaskStatus END)WHERE DocEntry ='" & sDocEntry & "'"
             'sQueryString += " update [@AB_JOBSCH] set U_DocStatus = (CASE WHEN U_DocStatus ='O' THEN 'C' ELSE U_DocStatus END)WHERE DocEntry ='" & sDocEntry & "'"
 
-            Dim dToday As Date
-            dToday = Date.Now.ToString("yyyy-MM-dd")
+            Dim dStartDate As Date
+            oEdit = oForm.Items.Item("txtStrDate").Specific
+            dStartDate = GetDateTimeValue(oEdit.String)
 
-            sQueryString = "UPDATE [@AB_JOBSCH2] SET U_DayStatus = 'Closed' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dToday.ToString("yyyy-MM-dd") & "'"
-            sQueryString += " UPDATE [@AB_JOBSCH3] SET U_TaskStatus = 'Canceled' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dToday.ToString("yyyy-MM-dd") & "'"
+            sQueryString = "UPDATE [@AB_JOBSCH2] SET U_DayStatus = 'Closed' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dStartDate.ToString("yyyy-MM-dd") & "'"
+            sQueryString += " UPDATE [@AB_JOBSCH3] SET U_TaskStatus = 'Canceled' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dStartDate.ToString("yyyy-MM-dd") & "'"
+            sQueryString += " UPDATE [@AB_JOBSCH] SET U_DocStatus = 'D' WHERE DocEntry = '" & sJobSchEntry & "' "
 
             oRs.DoQuery(sQueryString)
 
-            oForm.Mode = SAPbouiCOM.BoFormMode.fm_OK_MODE
+            'oForm.Mode = SAPbouiCOM.BoFormMode.fm_OK_MODE
 
             If p_iDebugMode = DEBUG_ON Then Call WriteToLogFile_Debug("Completed with SUCCESS", sFuncName)
 
@@ -1404,7 +1407,7 @@ Module modJobSchedule
                 oEdit.String = "s"
                 oForm.Items.Item("txtJobSite").Enabled = True
                 oCombo = oForm.Items.Item("cmbStatus").Specific
-                oCombo.Select(0, SAPbouiCOM.BoSearchKey.psk_Index)
+                oCombo.Select("D", SAPbouiCOM.BoSearchKey.psk_ByValue)
                 oForm.Items.Item("txtStrDate").Enabled = True
                 oEdit = oForm.Items.Item("txtStrDate").Specific
                 oEdit.String = "s"

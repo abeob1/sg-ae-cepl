@@ -1446,7 +1446,6 @@ Public Class clsEventHandler
                         End If
 
                     Case "JJS"
-
                         If pVal.EventType = SAPbouiCOM.BoEventTypes.et_LOST_FOCUS And pVal.ItemUID = "matJobSch" Then
                             Dim oForm As SAPbouiCOM.Form = p_oSBOApplication.Forms.GetFormByTypeAndCount(60004, pVal.FormTypeCount)
                             If JobSchedule_MatrixAddRow(oForm, sErrDesc) <> RTN_SUCCESS Then Throw New ArgumentException(sErrDesc)
@@ -3452,9 +3451,14 @@ Public Class clsEventHandler
                 If oform.UniqueID = "JJS" And oform.Mode = SAPbouiCOM.BoFormMode.fm_OK_MODE Then
                     If JobSchedule_RightClickMenu(oform, sErrDesc) <> RTN_SUCCESS Then Throw New ArgumentException(sErrDesc)
                     oform.EnableMenu("1286", True)
-                    oform.EnableMenu("1287", True)
 
                     sDocEntry = oform.Items.Item("txtDocEntr").Specific.string
+                    Dim oCombo As SAPbouiCOM.ComboBox = oform.Items.Item("cmbStatus").Specific
+                    If oCombo.Selected.Value = "D" Then
+                        oform.EnableMenu("1287", False)
+                    Else
+                        oform.EnableMenu("1287", True)
+                    End If
                 Else
                     oform.EnableMenu("1287", False)
                     If p_oSBOApplication.Menus.Exists("JDS") Then

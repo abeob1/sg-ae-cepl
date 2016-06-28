@@ -8716,3 +8716,1937 @@
 [06/27/2016 14:10:39][             SBO_Application_MenuEvent()] Completed with SUCCESS
 [06/27/2016 14:10:41][            JobSchedule_RightClickMenu()] Starting Function
 [06/27/2016 14:10:41][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 17:52:31][                                  Main()] Starting Addon startup function
+[06/27/2016 17:52:31][                                  Main()] Initializing public SBO Application object
+[06/27/2016 17:52:31][                                  Main()] Retriving SBO application company handle
+[06/27/2016 17:52:31][                                  Main()] Calling ConnectDICompSSO()
+[06/27/2016 17:52:31][                      ConnectDICompSSO()] Starting function
+[06/27/2016 17:52:35][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/27/2016 17:52:35][                                  Main()] Calling DisplayStatus()
+[06/27/2016 17:52:35][                                  Main()] Creating Event handler class
+[06/27/2016 17:52:35][                      Class_Initialize()] Starting function
+[06/27/2016 17:52:35][                      Class_Initialize()] Retriving SBO Application handle
+[06/27/2016 17:52:35][                      Class_Initialize()] Completed with SUCCESS
+[06/27/2016 17:52:35][                                  Main()] Calling SetApplication Function
+[06/27/2016 17:52:35][                                  Main()] Addon started successfully
+[06/27/2016 17:52:35][                                  Main()] Calling EndStatus()
+[06/27/2016 17:52:35][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/27/2016 17:52:35][                                  Main()] Calling AddMenus Functions
+[06/27/2016 17:52:41][                                  Main()] Company Theme 1
+[06/27/2016 17:52:41][                                  Main()] AddMenus Functions Completed Successfully.
+[06/27/2016 17:52:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:52:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:52:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:52:46][                  JobSchedule_FormLoad()] Starting Function
+[06/27/2016 17:52:46][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/27/2016 17:52:46][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 17:52:46][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 17:52:47][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 17:52:51][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:52:51][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:52:53][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:52:53][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:52:53][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:52:53][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:52:53][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:52:53][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:52:53][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:52:53][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:52:57][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 17:52:57][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 17:53:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:03][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 17:53:03][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '22'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 17:53:04][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 17:53:07][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 17:53:07][               TaskSchedule_LoadScreen()] Starting Function
+[06/27/2016 17:53:07][               TaskSchedule_LoadValues()] Starting Function
+[06/27/2016 17:53:07][               TaskSchedule_LoadValues()] Executing Query : select T0.[LineId], T2.U_Location [Location] ,T2.U_CleaningType [CleaningType],T2.U_StartTime [Start Time] ,T2.U_EndTime [End Time]  , isnull(T0.U_ActualStartTime,'')  [Actual Start Time],isnull(T0.U_ActualEndTime,'')  [Actual End Time],T0.U_TaskStatus [TaskStatus] ,T1.[U_DayStatus] [DayStatus] ,T0.U_Reason  [Reason]  ,T0.U_NewSchedDate [NewSchDate],T0.U_AlertHQ [AlertHQ], isnull(T1.[U_CompletedDate],'') [CompletedDate], T1.[U_UserSign] [CompletedBy], T1.[U_SupervisorSign], T1.[U_ClientSign]  ,T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], T0.[U_ScheduleDate] [ScheduleDate] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH2] T1 ON T0.DocEntry =T1.DocEntry AND T1.LineId =T0.U_DayLineNum   INNER JOIN [@AB_JOBSCH1] T2 ON T1.DocEntry =T2.DocEntry AND T2.LineId =T0.U_ActivityLineNum    WHERE T0. DocEntry ='22' AND CONVERT(DATE, T0.U_ScheduleDate,103) ='20160627'
+[06/27/2016 17:53:08][               TaskSchedule_LoadValues()] Executing Query : select U_path [Path] ,U_FileName [FileName],U_AttachDate [AttachDate] from [@AB_JOBSCH4] where DocEntry ='22'
+[06/27/2016 17:53:08][               TaskSchedule_LoadValues()] Completed with ERROR
+[06/27/2016 17:53:08][               TaskSchedule_LoadValues()] Completed with SUCCESS
+[06/27/2016 17:53:08][               TaskSchedule_LoadValues()] Completed with SUCCESS
+[06/27/2016 17:53:43][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:43][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:43][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:43][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:43][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:43][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:43][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:43][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:43][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:43][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:44][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:44][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:44][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:44][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:44][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:44][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:44][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:44][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:45][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:45][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:46][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:46][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:46][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:46][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:46][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:46][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:48][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:48][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:48][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:48][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:48][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:48][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:48][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:48][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:48][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:48][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:49][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:49][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:49][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:49][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:49][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:49][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:49][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:49][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:49][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:49][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:50][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:50][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:50][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:50][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:50][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:51][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:51][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:51][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:51][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:51][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:51][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:51][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:51][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:52][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:52][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:52][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:52][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:52][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:52][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:52][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:52][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:52][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:53][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:53][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:53][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:53][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:53][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:53][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:53][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:53][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:53][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:53][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:54][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:54][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:54][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:54][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:54][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:54][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:54][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:54][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:54][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:54][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:56][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:56][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:56][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:56][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:56][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:56][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:56][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:56][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:56][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:56][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:58][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:58][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:58][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:58][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:59][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:53:59][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:53:59][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:53:59][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:53:59][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:53:59][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:00][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:00][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:00][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:54:00][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:54:00][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:54:00][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:54:00][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:00][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:54:00][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:54:00][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:02][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:02][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:02][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:54:02][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:54:02][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:54:02][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:54:02][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:02][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:54:02][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:54:02][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:54:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:54:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:54:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:54:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:03][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:54:03][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:54:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:16][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 17:54:16][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 17:54:18][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 17:54:18][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 17:54:23][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:54:23][                    DuplicateJobSchedule] Starting Function 
+[06/27/2016 17:54:23][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:23][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:23][            JobSchedule_ChooseFromList()] Starting Function
+[06/27/2016 17:54:23][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/27/2016 17:54:23][            JobSchedule_ChooseFromList()] Starting Function
+[06/27/2016 17:54:23][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/27/2016 17:54:23][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:24][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:24][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:54:30][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:30][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:32][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:32][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:54:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:54:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:55:20][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:55:20][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:55:25][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:55:25][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:55:37][                JobSchedule_Validation()] Starting Function
+[06/27/2016 17:55:37][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:55:37][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:55:37][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:55:37][         JobSchedule_FillDailySchedule()] Starting Function
+[06/27/2016 17:55:37][         JobSchedule_FillDailySchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160727','20161231','7'
+[06/27/2016 17:55:38][         JobSchedule_FillDailySchedule()] Completed with SUCCESS
+[06/27/2016 17:55:38][          JobSchedule_FillTaskSchedule()] Starting Function
+[06/27/2016 17:55:38][          JobSchedule_FillTaskSchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160727','20161231','7'
+[06/27/2016 17:55:40][          JobSchedule_FillTaskSchedule()] Completed with SUCCESS
+[06/27/2016 17:55:40][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:55:40][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:55:40][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:55:40][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:55:40][           JobSchedule_DeleteEmptyRows()] Executing Query : DELETE FROM [@AB_JOBSCH1] WHERE DocEntry ='' AND ISNULL(U_Location,'') = ''; DELETE FROM [@AB_JOBSCH4] WHERE DocEntry ='' AND  ISNULL(U_Path,'') = ''
+[06/27/2016 17:55:40][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:55:40][               JobSchedule_CloseStatus()] Starting Function
+[06/27/2016 17:55:40][               JobSchedule_CloseStatus()] Completed with SUCCESS
+[06/27/2016 17:55:40][               JobSchedule_CloseStatus()] Completed with SUCCESS
+[06/27/2016 17:55:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 17:55:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 17:55:40][                  JobSchedule_FormLoad()] Starting Function
+[06/27/2016 17:55:40][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/27/2016 17:55:40][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 17:55:40][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 17:55:40][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 17:55:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:55:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:55:47][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:55:47][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:55:47][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:55:47][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:55:48][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:55:48][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:55:48][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:55:48][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:55:49][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 17:55:49][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 17:55:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:55:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:55:50][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:55:51][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 17:55:51][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 17:55:51][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 17:56:01][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:01][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:01][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:01][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:01][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:01][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:01][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:01][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:01][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:01][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:02][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:02][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:02][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:02][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:02][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:03][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:03][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:03][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:03][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:03][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:04][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:04][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:04][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:04][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:04][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:04][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:04][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:04][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:04][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:04][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:05][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:05][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:05][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:05][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:05][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:05][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:05][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:05][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:05][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:05][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:07][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:07][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:08][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:08][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:08][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:08][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:08][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:08][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:08][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:08][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:09][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:09][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:09][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:09][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:09][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:09][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:09][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:09][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:09][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:09][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:10][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:10][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:10][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:10][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:10][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:10][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:10][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:10][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:10][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:10][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:10][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:10][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:11][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:11][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:11][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:11][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:11][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:11][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:11][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:11][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:11][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:12][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:12][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:12][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:12][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:12][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:12][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:12][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:12][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:12][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:12][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:12][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:12][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:13][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:13][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:13][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:13][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:13][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:13][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:13][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:13][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:14][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:14][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:14][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:14][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:15][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:15][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:15][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:15][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:15][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:15][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:15][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:15][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:15][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:15][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:15][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:15][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:15][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:15][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:15][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:15][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:17][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:17][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:17][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:17][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:18][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:18][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:18][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:18][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:18][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:18][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:19][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:19][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:19][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:19][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 17:56:19][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 17:56:19][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:19][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 17:56:19][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 17:56:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:21][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 17:56:21][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 17:56:23][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:23][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 17:56:23][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 17:56:23][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 17:56:23][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '7'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 17:56:23][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:01:22][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:01:22][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:08:19][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:08:19][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:08:21][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:08:21][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:08:21][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:08:21][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:08:21][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '7'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 18:08:21][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:09:39][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:09:39][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:09:41][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:09:41][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:09:41][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:09:41][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:09:41][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '7'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 18:09:41][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:12:34][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:12:34][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:12:34][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 18:12:34][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 18:12:34][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 18:12:34][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 18:12:34][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:12:34][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 18:12:34][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 18:12:34][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:12:38][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:12:38][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:13:15][                JobSchedule_Validation()] Starting Function
+[06/27/2016 18:13:15][                JobSchedule_Validation()] Completed with SUCCESS
+[06/27/2016 18:13:15][         JobSchedule_FillDailySchedule()] Starting Function
+[06/27/2016 18:13:15][         JobSchedule_FillDailySchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160727','20161231','7'
+[06/27/2016 18:13:16][         JobSchedule_FillDailySchedule()] Completed with SUCCESS
+[06/27/2016 18:13:16][          JobSchedule_FillTaskSchedule()] Starting Function
+[06/27/2016 18:13:16][          JobSchedule_FillTaskSchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160727','20161231','7'
+[06/27/2016 18:13:17][          JobSchedule_FillTaskSchedule()] Completed with SUCCESS
+[06/27/2016 18:13:17][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 18:13:17][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 18:13:18][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 18:13:18][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 18:13:18][           JobSchedule_DeleteEmptyRows()] Executing Query : DELETE FROM [@AB_JOBSCH1] WHERE DocEntry ='23' AND ISNULL(U_Location,'') = ''; DELETE FROM [@AB_JOBSCH4] WHERE DocEntry ='23' AND  ISNULL(U_Path,'') = ''
+[06/27/2016 18:13:18][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 18:13:18][               JobSchedule_CloseStatus()] Starting Function
+[06/27/2016 18:13:18][               JobSchedule_CloseStatus()] Completed with SUCCESS
+[06/27/2016 18:13:18][               JobSchedule_CloseStatus()] Completed with SUCCESS
+[06/27/2016 18:13:18][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 18:13:18][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 18:13:20][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:13:20][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:13:24][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:13:24][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:13:24][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:13:24][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:13:24][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 18:13:24][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:13:26][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:13:26][               TaskSchedule_LoadScreen()] Starting Function
+[06/27/2016 18:13:27][               TaskSchedule_LoadValues()] Starting Function
+[06/27/2016 18:13:27][               TaskSchedule_LoadValues()] Executing Query : select T0.[LineId], T2.U_Location [Location] ,T2.U_CleaningType [CleaningType],T2.U_StartTime [Start Time] ,T2.U_EndTime [End Time]  , isnull(T0.U_ActualStartTime,'')  [Actual Start Time],isnull(T0.U_ActualEndTime,'')  [Actual End Time],T0.U_TaskStatus [TaskStatus] ,T1.[U_DayStatus] [DayStatus] ,T0.U_Reason  [Reason]  ,T0.U_NewSchedDate [NewSchDate],T0.U_AlertHQ [AlertHQ], isnull(T1.[U_CompletedDate],'') [CompletedDate], T1.[U_UserSign] [CompletedBy], T1.[U_SupervisorSign], T1.[U_ClientSign]  ,T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], T0.[U_ScheduleDate] [ScheduleDate] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH2] T1 ON T0.DocEntry =T1.DocEntry AND T1.LineId =T0.U_DayLineNum   INNER JOIN [@AB_JOBSCH1] T2 ON T1.DocEntry =T2.DocEntry AND T2.LineId =T0.U_ActivityLineNum    WHERE T0. DocEntry ='23' AND CONVERT(DATE, T0.U_ScheduleDate,103) ='20160727'
+[06/27/2016 18:13:27][               TaskSchedule_LoadValues()] Executing Query : select U_path [Path] ,U_FileName [FileName],U_AttachDate [AttachDate] from [@AB_JOBSCH4] where DocEntry ='23'
+[06/27/2016 18:13:27][          TaskSchedule_NonEditableMode()] Starting Function
+[06/27/2016 18:13:27][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:13:27][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:13:28][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:13:28][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:14:20][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:14:20][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:14:27][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:14:27][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:14:27][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:14:27][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:14:27][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 18:14:27][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:14:53][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:14:53][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:14:54][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:14:54][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:14:54][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:14:54][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:14:54][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 18:14:54][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:14:57][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:14:57][               TaskSchedule_LoadScreen()] Starting Function
+[06/27/2016 18:14:57][               TaskSchedule_LoadValues()] Starting Function
+[06/27/2016 18:14:57][               TaskSchedule_LoadValues()] Executing Query : select T0.[LineId], T2.U_Location [Location] ,T2.U_CleaningType [CleaningType],T2.U_StartTime [Start Time] ,T2.U_EndTime [End Time]  , isnull(T0.U_ActualStartTime,'')  [Actual Start Time],isnull(T0.U_ActualEndTime,'')  [Actual End Time],T0.U_TaskStatus [TaskStatus] ,T1.[U_DayStatus] [DayStatus] ,T0.U_Reason  [Reason]  ,T0.U_NewSchedDate [NewSchDate],T0.U_AlertHQ [AlertHQ], isnull(T1.[U_CompletedDate],'') [CompletedDate], T1.[U_UserSign] [CompletedBy], T1.[U_SupervisorSign], T1.[U_ClientSign]  ,T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], T0.[U_ScheduleDate] [ScheduleDate] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH2] T1 ON T0.DocEntry =T1.DocEntry AND T1.LineId =T0.U_DayLineNum   INNER JOIN [@AB_JOBSCH1] T2 ON T1.DocEntry =T2.DocEntry AND T2.LineId =T0.U_ActivityLineNum    WHERE T0. DocEntry ='23' AND CONVERT(DATE, T0.U_ScheduleDate,103) ='20160727'
+[06/27/2016 18:14:58][               TaskSchedule_LoadValues()] Executing Query : select U_path [Path] ,U_FileName [FileName],U_AttachDate [AttachDate] from [@AB_JOBSCH4] where DocEntry ='23'
+[06/27/2016 18:14:58][          TaskSchedule_NonEditableMode()] Starting Function
+[06/27/2016 18:14:58][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:14:58][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:14:58][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:14:58][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:15:46][         TaskSchedule_UpdateReSchedule()] Starting Function
+[06/27/2016 18:15:46][         TaskSchedule_UpdateReSchedule()] Executing Query : Exec [SP045_UpdateSCH2]'23' , 1, '20160727','20160628','Yes'
+[06/27/2016 18:15:46][         TaskSchedule_UpdateReSchedule()] Completed with SUCCESS
+[06/27/2016 18:15:50][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 18:15:50][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 18:15:51][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:15:51][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:15:51][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:15:51][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:15:51][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 18:15:51][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 18:15:53][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 18:15:53][               TaskSchedule_LoadScreen()] Starting Function
+[06/27/2016 18:15:54][               TaskSchedule_LoadValues()] Starting Function
+[06/27/2016 18:15:54][               TaskSchedule_LoadValues()] Executing Query : select T0.[LineId], T2.U_Location [Location] ,T2.U_CleaningType [CleaningType],T2.U_StartTime [Start Time] ,T2.U_EndTime [End Time]  , isnull(T0.U_ActualStartTime,'')  [Actual Start Time],isnull(T0.U_ActualEndTime,'')  [Actual End Time],T0.U_TaskStatus [TaskStatus] ,T1.[U_DayStatus] [DayStatus] ,T0.U_Reason  [Reason]  ,T0.U_NewSchedDate [NewSchDate],T0.U_AlertHQ [AlertHQ], isnull(T1.[U_CompletedDate],'') [CompletedDate], T1.[U_UserSign] [CompletedBy], T1.[U_SupervisorSign], T1.[U_ClientSign]  ,T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], T0.[U_ScheduleDate] [ScheduleDate] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH2] T1 ON T0.DocEntry =T1.DocEntry AND T1.LineId =T0.U_DayLineNum   INNER JOIN [@AB_JOBSCH1] T2 ON T1.DocEntry =T2.DocEntry AND T2.LineId =T0.U_ActivityLineNum    WHERE T0. DocEntry ='23' AND CONVERT(DATE, T0.U_ScheduleDate,103) ='20160727'
+[06/27/2016 18:15:54][               TaskSchedule_LoadValues()] Executing Query : select U_path [Path] ,U_FileName [FileName],U_AttachDate [AttachDate] from [@AB_JOBSCH4] where DocEntry ='23'
+[06/27/2016 18:15:54][          TaskSchedule_NonEditableMode()] Starting Function
+[06/27/2016 18:15:54][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:15:54][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:15:55][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:15:55][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 18:25:45][                                  Main()] Starting Addon startup function
+[06/27/2016 18:25:45][                                  Main()] Initializing public SBO Application object
+[06/27/2016 18:25:45][                                  Main()] Retriving SBO application company handle
+[06/27/2016 18:25:45][                                  Main()] Calling ConnectDICompSSO()
+[06/27/2016 18:25:45][                      ConnectDICompSSO()] Starting function
+[06/27/2016 18:25:49][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/27/2016 18:25:49][                                  Main()] Calling DisplayStatus()
+[06/27/2016 18:25:49][                                  Main()] Creating Event handler class
+[06/27/2016 18:25:49][                      Class_Initialize()] Starting function
+[06/27/2016 18:25:49][                      Class_Initialize()] Retriving SBO Application handle
+[06/27/2016 18:25:49][                      Class_Initialize()] Completed with SUCCESS
+[06/27/2016 18:25:49][                                  Main()] Calling SetApplication Function
+[06/27/2016 18:25:49][                                  Main()] Addon started successfully
+[06/27/2016 18:25:49][                                  Main()] Calling EndStatus()
+[06/27/2016 18:25:49][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/27/2016 18:25:49][                                  Main()] Calling AddMenus Functions
+[06/27/2016 18:25:55][                                  Main()] Company Theme 1
+[06/27/2016 18:25:55][                                  Main()] AddMenus Functions Completed Successfully.
+[06/27/2016 18:27:44][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:27:44][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:27:44][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:27:45][                  JobSchedule_FormLoad()] Starting Function
+[06/27/2016 18:27:45][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/27/2016 18:27:45][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 18:27:45][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 18:27:45][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 18:27:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:27:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 18:27:48][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 18:27:48][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 18:27:48][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 18:27:48][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 18:27:48][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 18:27:48][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 18:27:48][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 18:27:48][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:25][                                  Main()] Starting Addon startup function
+[06/27/2016 19:25:25][                                  Main()] Initializing public SBO Application object
+[06/27/2016 19:25:25][                                  Main()] Retriving SBO application company handle
+[06/27/2016 19:25:25][                                  Main()] Calling ConnectDICompSSO()
+[06/27/2016 19:25:25][                      ConnectDICompSSO()] Starting function
+[06/27/2016 19:25:28][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/27/2016 19:25:28][                                  Main()] Calling DisplayStatus()
+[06/27/2016 19:25:28][                                  Main()] Creating Event handler class
+[06/27/2016 19:25:28][                      Class_Initialize()] Starting function
+[06/27/2016 19:25:28][                      Class_Initialize()] Retriving SBO Application handle
+[06/27/2016 19:25:29][                      Class_Initialize()] Completed with SUCCESS
+[06/27/2016 19:25:29][                                  Main()] Calling SetApplication Function
+[06/27/2016 19:25:29][                                  Main()] Addon started successfully
+[06/27/2016 19:25:29][                                  Main()] Calling EndStatus()
+[06/27/2016 19:25:29][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/27/2016 19:25:29][                                  Main()] Calling AddMenus Functions
+[06/27/2016 19:25:35][                                  Main()] Company Theme 1
+[06/27/2016 19:25:35][                                  Main()] AddMenus Functions Completed Successfully.
+[06/27/2016 19:25:38][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:38][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:38][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:38][                  JobSchedule_FormLoad()] Starting Function
+[06/27/2016 19:25:38][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/27/2016 19:25:38][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 19:25:39][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:25:39][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:25:41][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:41][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:42][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:42][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:42][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:42][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:42][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:42][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:25:42][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:25:42][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:45][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:45][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:45][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:45][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:45][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:45][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:45][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:45][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:25:45][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:25:45][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:46][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:46][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:46][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:46][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:46][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:46][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:25:47][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:25:47][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:47][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:47][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:47][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:47][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:47][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:25:47][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:25:48][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:48][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:25:48][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:25:48][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:54][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:54][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:25:54][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:25:55][                  JobSchedule_FormLoad()] Starting Function
+[06/27/2016 19:25:55][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/27/2016 19:25:55][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 19:25:55][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:25:55][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:25:56][                JobSchedule_Validation()] Starting Function
+[06/27/2016 19:25:56][             SBO_Application_ItemEvent()] Completed with ERROR
+[06/27/2016 19:26:09][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:26:09][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:26:14][                JobSchedule_Validation()] Starting Function
+[06/27/2016 19:26:14][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:26:14][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:26:14][             SBO_Application_ItemEvent()] Completed with ERROR
+[06/27/2016 19:26:19][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:19][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:20][                  JobSchedule_FormLoad()] Starting Function
+[06/27/2016 19:26:20][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/27/2016 19:26:20][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 19:26:20][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:26:20][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:26:21][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:21][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:22][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:22][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:22][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:22][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:22][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:22][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:22][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:22][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:23][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:23][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:23][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:23][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:23][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:23][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:23][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:23][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:23][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:23][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:24][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:24][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:24][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:24][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:24][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:24][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:24][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:24][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:24][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:24][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:25][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:25][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:25][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:25][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:25][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:25][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:25][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:25][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:25][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:25][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:26][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:26][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:26][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:26][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:26][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:26][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:26][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:26][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:27][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:27][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:27][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:27][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:27][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:27][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:27][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:28][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:28][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:29][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:29][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:29][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:29][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:29][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:29][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:29][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:29][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:29][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:29][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:30][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:30][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:30][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:30][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:30][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:30][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:30][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:30][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:30][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:30][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:32][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:32][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:32][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:32][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:32][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:32][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:32][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:32][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:32][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:32][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:33][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:33][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:33][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:33][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:33][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:33][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:33][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:33][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:34][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:34][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:35][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:35][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:35][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:35][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:35][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:35][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:35][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:35][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:35][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:35][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:36][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:36][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:36][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:36][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:36][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:36][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:36][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:36][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:36][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:36][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:37][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:37][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:37][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:37][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:37][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:37][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:37][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:38][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:38][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:38][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:38][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:39][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:39][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:39][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:39][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:39][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:39][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:39][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:39][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:40][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:40][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:40][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:40][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:40][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:40][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:40][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:40][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:40][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:40][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:43][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:43][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:26:43][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:43][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:43][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:26:43][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:26:43][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:26:43][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:26:43][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:26:43][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:32:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:32:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:32:03][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:32:03][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 19:32:04][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:32:04][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:32:06][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:32:06][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:32:06][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:32:06][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:32:06][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:32:06][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:32:11][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 19:32:11][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 19:32:13][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:32:13][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:32:13][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:32:13][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 19:32:13][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '7'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 19:32:13][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 19:32:29][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:32:29][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:32:29][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:32:29][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:32:29][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:32:29][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:32:29][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:32:29][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:32:29][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:32:29][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:34:07][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 19:34:07][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 19:34:09][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:09][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:34:09][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:09][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 19:34:09][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 19:34:09][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 19:34:16][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:16][                    DuplicateJobSchedule] Starting Function 
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][            JobSchedule_ChooseFromList()] Starting Function
+[06/27/2016 19:34:17][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/27/2016 19:34:17][            JobSchedule_ChooseFromList()] Starting Function
+[06/27/2016 19:34:17][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:17][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:34:20][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:20][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:34:22][              JobSchedule_MatrixAddRow()] Starting Function
+[06/27/2016 19:34:22][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/27/2016 19:34:22][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:22][          JobSchedule_EditableControls()] Starting Function
+[06/27/2016 19:34:22][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/27/2016 19:34:22][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:34:24][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:34:24][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:34:24][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:34:24][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:34:25][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:34:25][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:34:27][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 19:34:27][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 19:34:28][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:34:28][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:34:28][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 19:34:28][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '7'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 19:34:28][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 19:35:11][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 19:35:11][               Display_PurchaseRequest()] Completed with ERROR
+[06/27/2016 19:35:11][             SBO_Application_ItemEvent()] Completed with ERROR
+[06/27/2016 19:36:08][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:36:08][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:36:08][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:36:08][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:36:08][         SBO_Application_FormDataEvent()] Starting the Function
+[06/27/2016 19:36:08][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/27/2016 19:36:08][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:36:08][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/27/2016 19:36:08][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/27/2016 19:36:08][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:37:02][            JobSchedule_RightClickMenu()] Starting Function
+[06/27/2016 19:37:02][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/27/2016 19:37:05][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:37:05][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/27/2016 19:37:05][             SBO_Application_MenuEvent()] Starting function
+[06/27/2016 19:37:05][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 19:37:05][               Display_PurchaseRequest()] Query select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum  where T0.DocEntry = '23'  group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, T2.U_CompletedDate 
+[06/27/2016 19:37:05][               Display_PurchaseRequest()] Completed with SUCCESS
+[06/27/2016 19:37:08][               Display_PurchaseRequest()] Startung Function
+[06/27/2016 19:37:08][               TaskSchedule_LoadScreen()] Starting Function
+[06/27/2016 19:37:08][               TaskSchedule_LoadValues()] Starting Function
+[06/27/2016 19:37:08][               TaskSchedule_LoadValues()] Executing Query : select T0.[LineId], T2.U_Location [Location] ,T2.U_CleaningType [CleaningType],T2.U_StartTime [Start Time] ,T2.U_EndTime [End Time]  , isnull(T0.U_ActualStartTime,'')  [Actual Start Time],isnull(T0.U_ActualEndTime,'')  [Actual End Time],T0.U_TaskStatus [TaskStatus] ,T1.[U_DayStatus] [DayStatus] ,T0.U_Reason  [Reason]  ,T0.U_NewSchedDate [NewSchDate],T0.U_AlertHQ [AlertHQ], isnull(T1.[U_CompletedDate],'') [CompletedDate], T1.[U_UserSign] [CompletedBy], T1.[U_SupervisorSign], T1.[U_ClientSign]  ,T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], T0.[U_ScheduleDate] [ScheduleDate] from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH2] T1 ON T0.DocEntry =T1.DocEntry AND T1.LineId =T0.U_DayLineNum   INNER JOIN [@AB_JOBSCH1] T2 ON T1.DocEntry =T2.DocEntry AND T2.LineId =T0.U_ActivityLineNum    WHERE T0. DocEntry ='23' AND CONVERT(DATE, T0.U_ScheduleDate,103) ='20160727'
+[06/27/2016 19:37:09][               TaskSchedule_LoadValues()] Executing Query : select U_path [Path] ,U_FileName [FileName],U_AttachDate [AttachDate] from [@AB_JOBSCH4] where DocEntry ='23'
+[06/27/2016 19:37:09][          TaskSchedule_NonEditableMode()] Starting Function
+[06/27/2016 19:37:09][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 19:37:09][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 19:37:09][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/27/2016 19:37:09][          TaskSchedule_NonEditableMode()] Completed with SUCCESS
+[06/28/2016 10:39:19][                                  Main()] Starting Addon startup function
+[06/28/2016 10:39:19][                                  Main()] Initializing public SBO Application object
+[06/28/2016 10:39:19][                                  Main()] Retriving SBO application company handle
+[06/28/2016 10:39:19][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 10:39:19][                      ConnectDICompSSO()] Starting function
+[06/28/2016 10:41:05][                                  Main()] Starting Addon startup function
+[06/28/2016 10:41:05][                                  Main()] Initializing public SBO Application object
+[06/28/2016 10:41:05][                                  Main()] Retriving SBO application company handle
+[06/28/2016 10:41:05][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 10:41:05][                      ConnectDICompSSO()] Starting function
+[06/28/2016 10:41:08][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 10:41:08][                                  Main()] Calling DisplayStatus()
+[06/28/2016 10:41:08][                                  Main()] Creating Event handler class
+[06/28/2016 10:41:08][                      Class_Initialize()] Starting function
+[06/28/2016 10:41:08][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 10:41:08][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 10:41:08][                                  Main()] Calling SetApplication Function
+[06/28/2016 10:41:08][                                  Main()] Addon started successfully
+[06/28/2016 10:41:08][                                  Main()] Calling EndStatus()
+[06/28/2016 10:41:08][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 10:41:08][                                  Main()] Calling AddMenus Functions
+[06/28/2016 10:41:15][                                  Main()] Company Theme 1
+[06/28/2016 10:41:15][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 10:41:17][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:17][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:17][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:17][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:41:17][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:41:18][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:41:18][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:18][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:19][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:21][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:21][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:41:21][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:21][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:24][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:24][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:24][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:24][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:41:24][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:41:25][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:41:25][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:25][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:25][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:26][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:28][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:28][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:41:28][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:36][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:36][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:36][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:41:36][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:41:36][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:41:36][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:41:36][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:36][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:41:36][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:41:36][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:39][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:41:39][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:41:40][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:40][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:41:41][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:41:41][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:41:41][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:41][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:43][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:41:43][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:41:52][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:52][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:52][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:53][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:41:53][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:41:53][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:41:53][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:53][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:41:55][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:55][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:41:56][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:41:56][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:41:56][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:41:56][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:41:56][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:41:56][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:41:56][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:41:56][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:42:00][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:42:00][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:42:00][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:42:00][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:42:14][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:42:14][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:42:15][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:42:15][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:44:00][                                  Main()] Starting Addon startup function
+[06/28/2016 10:44:00][                                  Main()] Initializing public SBO Application object
+[06/28/2016 10:44:00][                                  Main()] Retriving SBO application company handle
+[06/28/2016 10:44:01][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 10:44:01][                      ConnectDICompSSO()] Starting function
+[06/28/2016 10:44:04][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 10:44:04][                                  Main()] Calling DisplayStatus()
+[06/28/2016 10:44:04][                                  Main()] Creating Event handler class
+[06/28/2016 10:44:04][                      Class_Initialize()] Starting function
+[06/28/2016 10:44:04][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 10:44:04][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 10:44:04][                                  Main()] Calling SetApplication Function
+[06/28/2016 10:44:04][                                  Main()] Addon started successfully
+[06/28/2016 10:44:04][                                  Main()] Calling EndStatus()
+[06/28/2016 10:44:04][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 10:44:04][                                  Main()] Calling AddMenus Functions
+[06/28/2016 10:44:10][                                  Main()] Company Theme 1
+[06/28/2016 10:44:10][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 10:44:14][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:14][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:44:14][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:14][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:44:14][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:44:15][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:44:15][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:44:15][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:44:16][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:16][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:44:17][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:44:17][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:44:17][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:44:17][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:44:17][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:17][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:44:17][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:44:17][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:44:17][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:44:17][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:44:19][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:19][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:44:25][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:44:25][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:25][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:44:25][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:44:25][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:44:25][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:26][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:44:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:44:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:44:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:44:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:45:22][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:45:22][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:45:28][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:45:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:45:28][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:45:28][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:45:28][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:45:28][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:45:28][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:45:28][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:45:29][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:45:29][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:45:30][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:45:30][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:45:30][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:45:30][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:45:30][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:45:30][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:45:30][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:45:30][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:45:31][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:45:31][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:45:32][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:45:32][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:45:46][                    DuplicateJobSchedule] Completed with ERROR
+[06/28/2016 10:45:46][             SBO_Application_MenuEvent()] Completed with ERROR
+[06/28/2016 10:46:31][                                  Main()] Starting Addon startup function
+[06/28/2016 10:46:32][                                  Main()] Initializing public SBO Application object
+[06/28/2016 10:46:32][                                  Main()] Retriving SBO application company handle
+[06/28/2016 10:46:32][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 10:46:32][                      ConnectDICompSSO()] Starting function
+[06/28/2016 10:46:35][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 10:46:35][                                  Main()] Calling DisplayStatus()
+[06/28/2016 10:46:35][                                  Main()] Creating Event handler class
+[06/28/2016 10:46:35][                      Class_Initialize()] Starting function
+[06/28/2016 10:46:35][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 10:46:35][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 10:46:35][                                  Main()] Calling SetApplication Function
+[06/28/2016 10:46:35][                                  Main()] Addon started successfully
+[06/28/2016 10:46:35][                                  Main()] Calling EndStatus()
+[06/28/2016 10:46:35][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 10:46:35][                                  Main()] Calling AddMenus Functions
+[06/28/2016 10:46:35][                                  Main()] Company Theme 1
+[06/28/2016 10:46:35][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 10:46:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:46:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:46:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:46:37][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:46:37][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:46:37][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:46:37][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:46:37][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:46:38][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:46:38][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:46:40][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:46:40][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:46:40][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:46:40][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:46:40][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:46:40][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:46:40][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:46:40][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:46:40][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:46:40][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:46:42][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:46:42][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:46:44][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:44][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:44][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:46:44][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:46:44][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:46:44][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:46:45][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:46:48][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:46:48][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:04][                                  Main()] Starting Addon startup function
+[06/28/2016 10:47:04][                                  Main()] Initializing public SBO Application object
+[06/28/2016 10:47:04][                                  Main()] Retriving SBO application company handle
+[06/28/2016 10:47:05][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 10:47:05][                      ConnectDICompSSO()] Starting function
+[06/28/2016 10:47:08][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 10:47:08][                                  Main()] Calling DisplayStatus()
+[06/28/2016 10:47:08][                                  Main()] Creating Event handler class
+[06/28/2016 10:47:08][                      Class_Initialize()] Starting function
+[06/28/2016 10:47:08][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 10:47:08][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 10:47:08][                                  Main()] Calling SetApplication Function
+[06/28/2016 10:47:08][                                  Main()] Addon started successfully
+[06/28/2016 10:47:08][                                  Main()] Calling EndStatus()
+[06/28/2016 10:47:08][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 10:47:08][                                  Main()] Calling AddMenus Functions
+[06/28/2016 10:47:08][                                  Main()] Company Theme 1
+[06/28/2016 10:47:08][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 10:47:09][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:09][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:09][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:09][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 10:47:09][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 10:47:10][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 10:47:10][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:47:10][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 10:47:13][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:13][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:14][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:14][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:14][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:14][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:14][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:14][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:47:14][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:47:14][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:16][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:16][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:16][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:16][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:16][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:16][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:16][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:16][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:47:16][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:47:16][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:17][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:47:17][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:47:18][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:18][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:18][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:47:18][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:47:18][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:47:18][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:53][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:53][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:53][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:47:53][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:47:55][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:55][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:55][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:55][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:55][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:55][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:47:55][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:47:55][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:56][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:56][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:56][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:56][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:56][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:56][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:57][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:57][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:47:57][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:47:57][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:58][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:58][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:58][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:58][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:58][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:47:58][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:47:58][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:59][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:59][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:47:59][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:59][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:59][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:47:59][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:47:59][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:47:59][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:47:59][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:47:59][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:00][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:00][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:00][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:00][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:00][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:00][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:00][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:00][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:00][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:00][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:03][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:03][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:03][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:03][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:04][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:04][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:04][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:04][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:04][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:04][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:06][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:06][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:06][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:06][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:06][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:06][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:06][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:06][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:06][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:06][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:07][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:07][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:07][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:07][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:07][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:07][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:07][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:07][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:07][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:07][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:09][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:09][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:09][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:09][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:09][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:09][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:09][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:09][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:09][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:09][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:11][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:11][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:11][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:11][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:11][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:11][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:11][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:11][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:11][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:11][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:15][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:15][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:15][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:15][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:15][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:15][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:15][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:15][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:15][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:15][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:17][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:17][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:17][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:17][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:17][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:17][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:17][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:17][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:18][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:18][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:18][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:18][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:18][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:18][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:18][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:18][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:18][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:18][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:18][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:18][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:19][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:19][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:19][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:19][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:19][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:19][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:19][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:19][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:19][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:21][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:21][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:21][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:21][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:21][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:21][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:21][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:21][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:21][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:21][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:26][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:26][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:26][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:26][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:26][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:26][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:26][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:26][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:28][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:48:28][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:28][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:28][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:48:28][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:48:28][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:48:28][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:48:28][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:48:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:50:38][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 10:50:38][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 10:50:39][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 10:50:39][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 10:50:39][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:39][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:39][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:50:40][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:50:40][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 10:50:40][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:40][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 10:50:42][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:42][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:44][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 10:50:44][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 10:50:57][                JobSchedule_Validation()] Starting Function
+[06/28/2016 10:50:57][                JobSchedule_Validation()] Completed with SUCCESS
+[06/28/2016 10:50:57][         JobSchedule_FillDailySchedule()] Starting Function
+[06/28/2016 10:50:57][         JobSchedule_FillDailySchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160628','20161231','7'
+[06/28/2016 10:50:59][         JobSchedule_FillDailySchedule()] Completed with SUCCESS
+[06/28/2016 10:50:59][          JobSchedule_FillTaskSchedule()] Starting Function
+[06/28/2016 10:50:59][          JobSchedule_FillTaskSchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160628','20161231','7'
+[06/28/2016 10:51:01][          JobSchedule_FillTaskSchedule()] Completed with SUCCESS
+[06/28/2016 10:51:01][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:51:01][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 10:51:01][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 10:51:01][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 10:51:01][           JobSchedule_DeleteEmptyRows()] Executing Query : DELETE FROM [@AB_JOBSCH1] WHERE DocEntry ='' AND ISNULL(U_Location,'') = ''; DELETE FROM [@AB_JOBSCH4] WHERE DocEntry ='' AND  ISNULL(U_Path,'') = ''
+[06/28/2016 10:51:01][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 10:51:01][               JobSchedule_CloseStatus()] Starting Function
+[06/28/2016 10:51:39][                                  Main()] Starting Addon startup function
+[06/28/2016 10:51:39][                                  Main()] Initializing public SBO Application object
+[06/28/2016 10:51:39][                                  Main()] Retriving SBO application company handle
+[06/28/2016 10:51:40][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 10:51:40][                      ConnectDICompSSO()] Starting function
+[06/28/2016 10:51:43][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 10:51:43][                                  Main()] Calling DisplayStatus()
+[06/28/2016 10:51:43][                                  Main()] Creating Event handler class
+[06/28/2016 10:51:43][                      Class_Initialize()] Starting function
+[06/28/2016 10:51:43][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 10:51:43][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 10:51:43][                                  Main()] Calling SetApplication Function
+[06/28/2016 10:51:43][                                  Main()] Addon started successfully
+[06/28/2016 10:51:43][                                  Main()] Calling EndStatus()
+[06/28/2016 10:51:43][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 10:51:43][                                  Main()] Calling AddMenus Functions
+[06/28/2016 10:51:43][                                  Main()] Company Theme 1
+[06/28/2016 10:51:43][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 11:00:45][                                  Main()] Starting Addon startup function
+[06/28/2016 11:00:45][                                  Main()] Initializing public SBO Application object
+[06/28/2016 11:00:45][                                  Main()] Retriving SBO application company handle
+[06/28/2016 11:00:46][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 11:00:46][                      ConnectDICompSSO()] Starting function
+[06/28/2016 11:00:49][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 11:00:49][                                  Main()] Calling DisplayStatus()
+[06/28/2016 11:00:49][                                  Main()] Creating Event handler class
+[06/28/2016 11:00:49][                      Class_Initialize()] Starting function
+[06/28/2016 11:00:49][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 11:00:49][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 11:00:49][                                  Main()] Calling SetApplication Function
+[06/28/2016 11:00:49][                                  Main()] Addon started successfully
+[06/28/2016 11:00:49][                                  Main()] Calling EndStatus()
+[06/28/2016 11:00:49][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 11:00:49][                                  Main()] Calling AddMenus Functions
+[06/28/2016 11:00:49][                                  Main()] Company Theme 1
+[06/28/2016 11:00:49][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 11:00:54][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:00:54][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 11:00:54][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:00:55][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 11:00:55][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 11:00:55][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 11:00:55][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:00:55][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:00:59][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 11:00:59][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 11:01:36][             SBO_Application_ItemEvent()] Completed with ERROR
+[06/28/2016 11:03:31][                                  Main()] Starting Addon startup function
+[06/28/2016 11:03:31][                                  Main()] Initializing public SBO Application object
+[06/28/2016 11:03:31][                                  Main()] Retriving SBO application company handle
+[06/28/2016 11:03:31][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 11:03:31][                      ConnectDICompSSO()] Starting function
+[06/28/2016 11:03:34][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 11:03:34][                                  Main()] Calling DisplayStatus()
+[06/28/2016 11:03:34][                                  Main()] Creating Event handler class
+[06/28/2016 11:03:34][                      Class_Initialize()] Starting function
+[06/28/2016 11:03:34][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 11:03:34][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 11:03:34][                                  Main()] Calling SetApplication Function
+[06/28/2016 11:03:34][                                  Main()] Addon started successfully
+[06/28/2016 11:03:34][                                  Main()] Calling EndStatus()
+[06/28/2016 11:03:34][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 11:03:34][                                  Main()] Calling AddMenus Functions
+[06/28/2016 11:03:34][                                  Main()] Company Theme 1
+[06/28/2016 11:03:34][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 11:03:36][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:03:36][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 11:03:36][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:03:37][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 11:03:37][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 11:03:37][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 11:03:37][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:03:37][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:03:42][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 11:03:42][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 11:04:36][                                  Main()] Starting Addon startup function
+[06/28/2016 11:04:36][                                  Main()] Initializing public SBO Application object
+[06/28/2016 11:04:36][                                  Main()] Retriving SBO application company handle
+[06/28/2016 11:04:36][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 11:04:36][                      ConnectDICompSSO()] Starting function
+[06/28/2016 11:04:40][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 11:04:40][                                  Main()] Calling DisplayStatus()
+[06/28/2016 11:04:40][                                  Main()] Creating Event handler class
+[06/28/2016 11:04:40][                      Class_Initialize()] Starting function
+[06/28/2016 11:04:40][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 11:04:40][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 11:04:40][                                  Main()] Calling SetApplication Function
+[06/28/2016 11:04:40][                                  Main()] Addon started successfully
+[06/28/2016 11:04:40][                                  Main()] Calling EndStatus()
+[06/28/2016 11:04:40][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 11:04:40][                                  Main()] Calling AddMenus Functions
+[06/28/2016 11:04:40][                                  Main()] Company Theme 1
+[06/28/2016 11:04:40][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 11:04:41][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:04:41][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 11:04:41][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:04:42][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 11:04:42][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 11:04:42][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 11:04:42][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:04:42][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:04:46][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 11:04:46][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 11:04:57][             SBO_Application_ItemEvent()] Completed with ERROR
+[06/28/2016 11:20:31][                                  Main()] Starting Addon startup function
+[06/28/2016 11:20:31][                                  Main()] Initializing public SBO Application object
+[06/28/2016 11:20:31][                                  Main()] Retriving SBO application company handle
+[06/28/2016 11:20:31][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 11:20:31][                      ConnectDICompSSO()] Starting function
+[06/28/2016 11:20:34][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 11:20:34][                                  Main()] Calling DisplayStatus()
+[06/28/2016 11:20:34][                                  Main()] Creating Event handler class
+[06/28/2016 11:20:34][                      Class_Initialize()] Starting function
+[06/28/2016 11:20:34][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 11:20:34][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 11:20:34][                                  Main()] Calling SetApplication Function
+[06/28/2016 11:20:34][                                  Main()] Addon started successfully
+[06/28/2016 11:20:34][                                  Main()] Calling EndStatus()
+[06/28/2016 11:20:34][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 11:20:34][                                  Main()] Calling AddMenus Functions
+[06/28/2016 11:20:34][                                  Main()] Company Theme 1
+[06/28/2016 11:20:34][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 11:20:59][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:20:59][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 11:20:59][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 11:21:00][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 11:21:00][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 11:21:00][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 11:21:00][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:21:00][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 11:21:03][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 11:21:03][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 11:21:33][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 11:21:33][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:00:05][                                  Main()] Starting Addon startup function
+[06/28/2016 12:00:05][                                  Main()] Initializing public SBO Application object
+[06/28/2016 12:00:05][                                  Main()] Retriving SBO application company handle
+[06/28/2016 12:00:06][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 12:00:06][                      ConnectDICompSSO()] Starting function
+[06/28/2016 12:00:09][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 12:00:09][                                  Main()] Calling DisplayStatus()
+[06/28/2016 12:00:09][                                  Main()] Creating Event handler class
+[06/28/2016 12:00:09][                      Class_Initialize()] Starting function
+[06/28/2016 12:00:09][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 12:00:09][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 12:00:09][                                  Main()] Calling SetApplication Function
+[06/28/2016 12:00:09][                                  Main()] Addon started successfully
+[06/28/2016 12:00:09][                                  Main()] Calling EndStatus()
+[06/28/2016 12:00:09][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 12:00:09][                                  Main()] Calling AddMenus Functions
+[06/28/2016 12:00:09][                                  Main()] Company Theme 1
+[06/28/2016 12:00:09][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 12:00:14][                                  Main()] Starting Addon startup function
+[06/28/2016 12:00:14][                                  Main()] Initializing public SBO Application object
+[06/28/2016 12:00:14][                                  Main()] Retriving SBO application company handle
+[06/28/2016 12:00:14][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 12:00:14][                      ConnectDICompSSO()] Starting function
+[06/28/2016 12:00:17][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 12:00:17][                                  Main()] Calling DisplayStatus()
+[06/28/2016 12:00:17][                                  Main()] Creating Event handler class
+[06/28/2016 12:00:17][                      Class_Initialize()] Starting function
+[06/28/2016 12:00:17][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 12:00:17][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 12:00:17][                                  Main()] Calling SetApplication Function
+[06/28/2016 12:00:17][                                  Main()] Addon started successfully
+[06/28/2016 12:00:17][                                  Main()] Calling EndStatus()
+[06/28/2016 12:00:18][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 12:00:18][                                  Main()] Calling AddMenus Functions
+[06/28/2016 12:00:18][                                  Main()] Company Theme 1
+[06/28/2016 12:00:18][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 12:00:29][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:00:29][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:00:29][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:00:29][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 12:00:29][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 12:00:29][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 12:00:29][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:00:29][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:00:30][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:00:30][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:00:32][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:00:32][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:00:32][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:00:32][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:00:32][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:00:32][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:00:32][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:00:32][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:00:36][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 12:00:36][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 12:01:40][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 12:01:40][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 12:02:11][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 12:02:11][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 12:03:21][                                  Main()] Starting Addon startup function
+[06/28/2016 12:03:21][                                  Main()] Initializing public SBO Application object
+[06/28/2016 12:03:21][                                  Main()] Retriving SBO application company handle
+[06/28/2016 12:03:21][                                  Main()] Calling ConnectDICompSSO()
+[06/28/2016 12:03:21][                      ConnectDICompSSO()] Starting function
+[06/28/2016 12:03:24][                      ConnectDICompSSO()] Completed with SUCCESS
+[06/28/2016 12:03:24][                                  Main()] Calling DisplayStatus()
+[06/28/2016 12:03:24][                                  Main()] Creating Event handler class
+[06/28/2016 12:03:24][                      Class_Initialize()] Starting function
+[06/28/2016 12:03:24][                      Class_Initialize()] Retriving SBO Application handle
+[06/28/2016 12:03:24][                      Class_Initialize()] Completed with SUCCESS
+[06/28/2016 12:03:24][                                  Main()] Calling SetApplication Function
+[06/28/2016 12:03:24][                                  Main()] Addon started successfully
+[06/28/2016 12:03:24][                                  Main()] Calling EndStatus()
+[06/28/2016 12:03:24][                                  Main()] Company Data SQLSELECT T0.[U_Theme] FROM [dbo].[@AB_COMPANYSETUP]  T0 where  T0.[U_DBName] = 'CleaningExpress'
+[06/28/2016 12:03:24][                                  Main()] Calling AddMenus Functions
+[06/28/2016 12:03:24][                                  Main()] Company Theme 1
+[06/28/2016 12:03:24][                                  Main()] AddMenus Functions Completed Successfully.
+[06/28/2016 12:03:26][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:26][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:26][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:27][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 12:03:27][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 12:03:27][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 12:03:27][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:03:27][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:03:28][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:28][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:29][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:29][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:29][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:29][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:30][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:30][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:03:30][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:03:30][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:30][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 12:03:30][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 12:03:33][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:33][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:33][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:33][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:33][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:34][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:34][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:34][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:03:34][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:03:34][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:36][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:36][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:37][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:03:37][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:03:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:37][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:37][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:37][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:03:37][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:03:37][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:38][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 12:03:38][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 12:03:39][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:39][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 12:03:40][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 12:03:40][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 12:03:40][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:40][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:45][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:03:45][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:03:46][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:46][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:46][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:46][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 12:03:46][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 12:03:46][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 12:03:47][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:03:47][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:03:48][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:48][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:49][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:49][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:49][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:49][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:49][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:49][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:03:49][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:03:49][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:50][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:50][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:03:51][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:51][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:51][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:03:51][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:03:51][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:03:51][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:03:51][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:03:51][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:04:16][            JobSchedule_RightClickMenu()] Starting Function
+[06/28/2016 12:04:16][            JobSchedule_RightClickMenu()] Completed with SUCCESS
+[06/28/2016 12:04:17][             SBO_Application_MenuEvent()] Starting function
+[06/28/2016 12:04:17][                    DuplicateJobSchedule] Starting Function 
+[06/28/2016 12:04:17][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:17][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 12:04:18][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 12:04:18][            JobSchedule_ChooseFromList()] Starting Function
+[06/28/2016 12:04:18][            JobSchedule_ChooseFromList()] Completed with SUCCESS
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:18][             SBO_Application_MenuEvent()] Completed with SUCCESS
+[06/28/2016 12:04:19][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:19][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:21][              JobSchedule_MatrixAddRow()] Starting Function
+[06/28/2016 12:04:21][              JobSchedule_MatrixAddRow()] Completed with SUCCESS
+[06/28/2016 12:04:32][                JobSchedule_Validation()] Starting Function
+[06/28/2016 12:04:32][                JobSchedule_Validation()] Completed with SUCCESS
+[06/28/2016 12:04:32][         JobSchedule_FillDailySchedule()] Starting Function
+[06/28/2016 12:04:33][         JobSchedule_FillDailySchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160628','20161231','7'
+[06/28/2016 12:04:34][         JobSchedule_FillDailySchedule()] Completed with SUCCESS
+[06/28/2016 12:04:34][          JobSchedule_FillTaskSchedule()] Starting Function
+[06/28/2016 12:04:34][          JobSchedule_FillTaskSchedule()] Executing Query : [AE_SP041_JobScheduleDateCal]'20160628','20161231','7'
+[06/28/2016 12:04:36][          JobSchedule_FillTaskSchedule()] Completed with SUCCESS
+[06/28/2016 12:04:36][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:04:36][         SBO_Application_FormDataEvent()] Completed with SUCCESS
+[06/28/2016 12:04:36][         SBO_Application_FormDataEvent()] Starting the Function
+[06/28/2016 12:04:36][           JobSchedule_DeleteEmptyRows()] Starting Function
+[06/28/2016 12:04:36][           JobSchedule_DeleteEmptyRows()] Executing Query : DELETE FROM [@AB_JOBSCH1] WHERE DocEntry ='' AND ISNULL(U_Location,'') = ''; DELETE FROM [@AB_JOBSCH4] WHERE DocEntry ='' AND  ISNULL(U_Path,'') = ''
+[06/28/2016 12:04:36][           JobSchedule_DeleteEmptyRows()] Completed with SUCCESS
+[06/28/2016 12:04:36][               JobSchedule_CloseStatus()] Starting Function
+[06/28/2016 12:04:54][               JobSchedule_CloseStatus()] Completed with SUCCESS
+[06/28/2016 12:04:54][               JobSchedule_CloseStatus()] Completed with SUCCESS
+[06/28/2016 12:04:54][                  JobSchedule_FormLoad()] Starting Function
+[06/28/2016 12:04:54][                  JobSchedule_FormLoad()] Executing Query : select COUNT( CAST(ISNULL(DocNum,0) AS INT))+1 [DocEntry] from [@AB_JOBSCH] 
+[06/28/2016 12:04:54][          JobSchedule_EditableControls()] Starting Function
+[06/28/2016 12:04:54][          JobSchedule_EditableControls()] Completed with SUCCESS
+[06/28/2016 12:04:54][          JobSchedule_EditableControls()] Completed with SUCCESS
