@@ -96,3 +96,18 @@
 [06/28/2016 10:45:46][             SBO_Application_MenuEvent()] Valid Value - Value does not Exist  [66000-62]
 [06/28/2016 11:01:36][             SBO_Application_ItemEvent()] Conversion from string "20160810" to type 'Date' is not valid.
 [06/28/2016 11:04:57][             SBO_Application_ItemEvent()] Conversion from string "" to type 'Date' is not valid.
+[06/28/2016 12:52:09][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/28/2016 12:52:15][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/28/2016 14:05:11][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 14:42:50][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:09:27][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:10:43][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:14:55][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:17:57][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:48:04][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:48:15][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:51:12][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:53:28][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:55:58][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:56:07][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:56:12][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters

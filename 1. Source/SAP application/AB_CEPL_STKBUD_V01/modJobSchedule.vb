@@ -1277,8 +1277,8 @@ Module modJobSchedule
             oEdit = oForm.Items.Item("txtStrDate").Specific
             dStartDate = GetDateTimeValue(oEdit.String)
 
-            sQueryString = "UPDATE [@AB_JOBSCH2] SET U_DayStatus = 'Closed' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dStartDate.ToString("yyyy-MM-dd") & "'"
-            sQueryString += " UPDATE [@AB_JOBSCH3] SET U_TaskStatus = 'Canceled' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dStartDate.ToString("yyyy-MM-dd") & "'"
+            sQueryString = "UPDATE [@AB_JOBSCH2] SET U_DayStatus = 'Duplicate' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dStartDate.ToString("yyyy-MM-dd") & "'"
+            sQueryString += " UPDATE [@AB_JOBSCH3] SET U_TaskStatus = 'Duplicate' WHERE DocEntry = '" & sJobSchEntry & "' AND U_ScheduleDate >= '" & dStartDate.ToString("yyyy-MM-dd") & "'"
             sQueryString += " UPDATE [@AB_JOBSCH] SET U_DocStatus = 'D' WHERE DocEntry = '" & sJobSchEntry & "' "
 
             oRs.DoQuery(sQueryString)
@@ -1407,7 +1407,7 @@ Module modJobSchedule
                 oEdit.String = "s"
                 oForm.Items.Item("txtJobSite").Enabled = True
                 oCombo = oForm.Items.Item("cmbStatus").Specific
-                oCombo.Select("D", SAPbouiCOM.BoSearchKey.psk_ByValue)
+                oCombo.Select(0, SAPbouiCOM.BoSearchKey.psk_Index)
                 oForm.Items.Item("txtStrDate").Enabled = True
                 oEdit = oForm.Items.Item("txtStrDate").Specific
                 oEdit.String = "s"

@@ -71,10 +71,12 @@
             sQueryString = "select T0.[LineId], T2.U_Location [Location] ,T2.U_CleaningType [CleaningType],T2.U_StartTime [Start Time] ,T2.U_EndTime [End Time] " & _
                 " , isnull(T0.U_ActualStartTime,'')  [Actual Start Time],isnull(T0.U_ActualEndTime,'')  [Actual End Time],T0.U_TaskStatus [TaskStatus] ,T1.[U_DayStatus] [DayStatus] ,T0.U_Reason  [Reason] " & _
                 " ,T0.U_NewSchedDate [NewSchDate],T0.U_AlertHQ [AlertHQ], isnull(T1.[U_CompletedDate],'') [CompletedDate], T1.[U_UserSign] [CompletedBy], T1.[U_SupervisorSign], T1.[U_ClientSign]  " & _
-                ",T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], T0.[U_ScheduleDate] [ScheduleDate] " & _
+                ",T0.[U_CmplStartDate], T0.[U_CmplEndDate], T0.[U_CompletedBy], T0.[U_InspectedBy], T0.[U_VerifiedBy], T0.[U_Remarks], " & _
+                " (CASE WHEN ISNULL(T0.U_NewSchedDate,'') = '' THEN T0.U_ScheduleDate ELSE T0.U_NewSchedDate END) [ScheduleDate] " & _
                 "from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH2] T1 ON T0.DocEntry =T1.DocEntry AND T1.LineId =T0.U_DayLineNum  " & _
                 " INNER JOIN [@AB_JOBSCH1] T2 ON T1.DocEntry =T2.DocEntry AND T2.LineId =T0.U_ActivityLineNum   " & _
-                " WHERE T0. DocEntry ='" & sDocEntry & "' AND CONVERT(DATE, T0.U_ScheduleDate,103) ='" & sScheduleDate & "'"
+                " WHERE T0. DocEntry ='" & sDocEntry & "' " & _
+                " AND (CASE WHEN ISNULL(T0.U_NewSchedDate,'') = '' THEN CONVERT(DATE, T0.U_ScheduleDate,103) ELSE CONVERT(DATE, T0.U_NewSchedDate,103) END) ='" & sScheduleDate & "'"
 
 
             If p_iDebugMode = DEBUG_ON Then Call WriteToLogFile_Debug("Executing Query : " & sQueryString, sFuncName)

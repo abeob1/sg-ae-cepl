@@ -21,13 +21,12 @@
             ' ''    "T0.U_ClientSign [E- Client Signature] , T0.U_ClintSignText [Client Text],T0.U_AtcEntry  [Attachment Entry] " & _
             ' ''    " from [@AB_JOBSCH2] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry where T0.DocEntry ='" & sDocEntry & "' "
 
-            sQuery = "select  DocNum  , ROW_NUMBER() over (order by T0.U_ScheduleDate) as LineId,  T0.U_ScheduleDate [Scheduled Date] , T2.U_CompletedDate [Complated Date],  " & _
-                "T2.U_DayStatus [Status] , T2.U_UserSign [Completed By] " & _
-       "from [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry =T1.DocEntry " & _
-"join [@AB_JOBSCH2] T2 on T2.DocEntry = T0.DocEntry and T2.LineId = T0.U_DayLineNum " & _
-" where T0.DocEntry = '" & sDocEntry & "' " & _
-" group by T0.U_ScheduleDate,DocNum,T2.U_DayStatus , T2.U_UserSign, " & _
-            "T2.U_CompletedDate "
+            sQuery = "SELECT DocNum, ROW_NUMBER() OVER (ORDER BY T0.U_ScheduleDate) AS LineId, (CASE WHEN ISNULL(T0.U_NewSchedDate,'') = '' THEN T0.U_ScheduleDate ELSE T0.U_NewSchedDate END) [Scheduled Date] ,   " & _
+                     " T2.U_CompletedDate [Complated Date], T2.U_DayStatus [Status], T2.U_UserSign [Completed By] " & _
+                     " FROM [@AB_JOBSCH3] T0 INNER JOIN [@AB_JOBSCH] T1 ON T0.DocEntry = T1.DocEntry " & _
+                     " JOIN [@AB_JOBSCH2] T2 ON T2.DocEntry = T0.DocEntry AND T2.LineId = T0.U_DayLineNum " & _
+                     " WHERE T0.DocEntry = '" & sDocEntry & "' " & _
+                     " GROUP BY T0.U_ScheduleDate, DocNum, T2.U_DayStatus, T2.U_UserSign, T2.U_CompletedDate, T0.U_NewSchedDate "
 
             If p_iDebugMode = DEBUG_ON Then Call WriteToLogFile_Debug("Query " & sQuery, sFuncName)
 
