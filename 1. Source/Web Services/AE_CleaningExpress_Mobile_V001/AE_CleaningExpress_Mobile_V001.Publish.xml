@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\CleaningExpress_Publish" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/AE_CleaningExpress_Common.pdb" publishTime="06/02/2016 16:11:15" />
+    <file relUrl="JSignature/flashcanvas.js" publishTime="04/30/2015 14:41:54" />
+    <file relUrl="bin/HttpMultipartParser.xml" publishTime="06/02/2016 16:11:16" />
+    <file relUrl="Stored Procedures/CleaningExpress_Module2.sql" publishTime="04/27/2015 13:10:05" />
+    <file relUrl="JSignature/jSignature.min.js" publishTime="04/30/2015 14:41:54" />
+    <file relUrl="bin/AE_CleaningExpress_BLL.dll" publishTime="06/02/2016 16:11:25" />
+    <file relUrl="bin/AE_CleaningExpress_BLL.pdb" publishTime="06/02/2016 16:11:25" />
+    <file relUrl="bin/Svg.dll" publishTime="04/30/2015 13:36:21" />
+    <file relUrl="JSignature/jSignature.min.noconflict.js" publishTime="04/30/2015 14:41:54" />
+    <file relUrl="bin/AE_CleaningExpress_Common.dll" publishTime="06/02/2016 16:11:15" />
+    <file relUrl="bin/AE_CleaningExpress_Mobile_V001.dll" publishTime="06/02/2016 20:56:21" />
+    <file relUrl="bin/AE_CleaningExpress_Mobile_V001.pdb" publishTime="06/02/2016 20:56:21" />
+    <file relUrl="bin/AutoMapper.dll" publishTime="04/21/2015 11:15:49" />
+    <file relUrl="bin/log4net.dll" publishTime="02/28/2013 22:45:10" />
+    <file relUrl="JSignature/flashcanvas.swf" publishTime="04/30/2015 14:41:54" />
+    <file relUrl="DLL/AutoMapper.dll" publishTime="04/21/2015 11:15:49" />
+    <file relUrl="Stored Procedures/CleaningExpress_Module3.sql" publishTime="04/27/2015 13:08:48" />
+    <file relUrl="Attachments/bar.png" publishTime="04/09/2015 02:27:33" />
+    <file relUrl="bin/HttpMultipartParser.dll" publishTime="06/02/2016 16:11:16" />
+    <file relUrl="Mobile.asmx" publishTime="03/17/2015 14:21:21" />
+    <file relUrl="DLL/svgcontrol.dll" publishTime="05/13/2004 17:36:16" />
+    <file relUrl="Web.config" publishTime="06/02/2016 16:24:34" />
+    <file relUrl="bin/HttpMultipartParser.pdb" publishTime="06/02/2016 16:11:16" />
+    <file relUrl="Stored Procedures/CleaningExpress_Functions.sql" publishTime="04/27/2015 13:16:11" />
+    <file relUrl="Email/EmailTemplate.htm" publishTime="07/07/2015 12:23:08" />
+    <file relUrl="Operations.asmx" publishTime="04/21/2015 10:22:08" />
+    <file relUrl="Stored Procedures/CleaningExpress_Module1.sql" publishTime="04/27/2015 13:10:32" />
+    <file relUrl="bin/Interop.SAPbobsCOM.dll" publishTime="06/02/2016 16:11:35" />
+    <file relUrl="DLL/Svg.dll" publishTime="04/30/2015 13:36:21" />
+  </publishProfile>
+</publishData>

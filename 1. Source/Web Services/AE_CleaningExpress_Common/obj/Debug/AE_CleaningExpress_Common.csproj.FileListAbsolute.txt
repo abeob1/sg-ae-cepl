@@ -1,0 +1,27 @@
+E:\Abeo Projects\Cleaning Express\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.dll
+E:\Abeo Projects\Cleaning Express\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.pdb
+E:\Abeo Projects\Cleaning Express\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.dll
+E:\Abeo Projects\Cleaning Express\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.pdb
+E:\Abeo Projects\Cleaning Express\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.csprojResolveAssemblyReference.cache
+D:\CleaningExpress_Code\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.pdb
+D:\CleaningExpress_Code\AE_CleaningExpress_Mobile_V001\AE_CleaningExpress_Common\obj\Debug\ResolveAssemblyReference.cache
+D:\CleaningExpress_Code\ae-sgcepl\Mobile API`s\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.pdb
+D:\CleaningExpress_Code\ae-sgcepl\Mobile API`s\AE_CleaningExpress_Common\obj\Debug\ResolveAssemblyReference.cache
+D:\CleaningExpress_Code\ae-sgcepl\Mobile API`s\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.dll
+D:\CleaningExpress_Code\ae-sgcepl\Mobile API`s\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.pdb
+D:\CleaningExpress_Code\ae-sgcepl\Mobile API`s\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.dll
+D:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.dll
+D:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.pdb
+D:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\obj\Debug\ResolveAssemblyReference.cache
+D:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.dll
+D:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.pdb
+E:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.dll
+E:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.pdb
+E:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.dll
+E:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.pdb
+E:\Abeo-Projects\Cleaning Express\SVN\Vivek\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.csprojResolveAssemblyReference.cache
+E:\Abeo-Projects\Abeo_Projects_WorkArea\CEPL\1. Source\Web Services\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.dll
+E:\Abeo-Projects\Abeo_Projects_WorkArea\CEPL\1. Source\Web Services\AE_CleaningExpress_Common\bin\Debug\AE_CleaningExpress_Common.pdb
+E:\Abeo-Projects\Abeo_Projects_WorkArea\CEPL\1. Source\Web Services\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.csprojResolveAssemblyReference.cache
+E:\Abeo-Projects\Abeo_Projects_WorkArea\CEPL\1. Source\Web Services\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.dll
+E:\Abeo-Projects\Abeo_Projects_WorkArea\CEPL\1. Source\Web Services\AE_CleaningExpress_Common\obj\Debug\AE_CleaningExpress_Common.pdb
