@@ -1,0 +1,113 @@
+[06/17/2016 14:48:45][              JobSchedule_MatrixAddRow()] Row - Invalid index  [66000-31]
+[06/17/2016 14:48:45][             SBO_Application_ItemEvent()] Row - Invalid index  [66000-31]
+[06/17/2016 14:51:14][              JobSchedule_MatrixAddRow()] Row - Invalid index  [66000-31]
+[06/17/2016 14:51:14][             SBO_Application_ItemEvent()] Row - Invalid index  [66000-31]
+[06/20/2016 12:27:10][             SBO_Application_ItemEvent()] File Does Not Exist
+[06/20/2016 12:27:19][             SBO_Application_ItemEvent()] File Does Not Exist
+[06/20/2016 15:48:46][             SBO_Application_MenuEvent()] Public member 'Before_Action' on type 'MenuEventClass' not found.
+[06/20/2016 15:51:50][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:51:50][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:57:11][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:57:11][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:05][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:05][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:07][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:07][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:08][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:08][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:09][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:09][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:10][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:10][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:11][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:11][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 15:59:12][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 15:59:12][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 16:01:35][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 16:01:35][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 16:30:16][            JobSchedule_ChooseFromList()] Row - Invalid index  [66000-31]
+[06/20/2016 16:30:16][             SBO_Application_MenuEvent()] Row - Invalid index  [66000-31]
+[06/20/2016 16:31:07][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 16:31:07][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 16:31:41][         JobSchedule_FillDailySchedule()] Matrix - invalid row number
+[06/20/2016 16:31:41][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/20/2016 16:34:23][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/20/2016 16:34:27][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/20/2016 16:41:48][             SBO_Application_ItemEvent()] File Does Not Exist
+[06/25/2016 16:12:44][              JobSchedule_MatrixAddRow()] Error while selecting combo value in matrix
+[06/25/2016 16:13:38][              JobSchedule_MatrixAddRow()] Error while selecting combo value in matrix
+[06/25/2016 17:16:36][              JobSchedule_MatrixAddRow()] Error while selecting combo value in matrix
+[06/25/2016 17:17:24][              JobSchedule_MatrixAddRow()] Error while selecting combo value in matrix
+[06/25/2016 17:18:48][              JobSchedule_MatrixAddRow()] The remote procedure call failed. (Exception from HRESULT: 0x800706BE)
+[06/25/2016 17:18:48][                               ShowErr()] Unable to cast COM object of type 'SAPbouiCOM.ApplicationClass' to interface type 'SAPbouiCOM.IApplication'. This operation failed because the QueryInterface call on the COM component for the interface with IID '{D1F75D47-137C-4335-AC2A-3FE209831B6A}' failed due to the following error: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).
+[06/25/2016 17:18:48][             SBO_Application_MenuEvent()] 
+[06/25/2016 17:22:50][          JobSchedule_FillTaskSchedule()] Matrix - invalid row number
+[06/25/2016 17:24:45][          JobSchedule_FillTaskSchedule()] Matrix - invalid row number
+[06/25/2016 18:27:02][          JobSchedule_FillTaskSchedule()] Matrix - invalid row number
+[06/25/2016 18:57:37][                   JobSchedule_DeleteRow] Conversion from string "matJobSch" to type 'Integer' is not valid.
+[06/25/2016 18:57:37][             SBO_Application_MenuEvent()] Conversion from string "matJobSch" to type 'Integer' is not valid.
+[06/25/2016 19:01:28][                JobSchedule_Validation()] Matrix - invalid row number
+[06/25/2016 19:01:28][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/25/2016 19:03:48][          JobSchedule_FillTaskSchedule()] Matrix - invalid row number
+[06/25/2016 19:04:51][          JobSchedule_FillTaskSchedule()] Matrix - invalid row number
+[06/26/2016 11:19:11][             SBO_Application_ItemEvent()] Start Time Field. Cannot be Blank!. RowNo : 1
+[06/26/2016 11:20:09][             SBO_Application_ItemEvent()] Start Time Field. Cannot be Blank!. RowNo : 1
+[06/26/2016 11:22:00][             SBO_Application_ItemEvent()] Start Time Field. Cannot be Blank!. RowNo : 1
+[06/26/2016 11:53:21][              JobSchedule_MatrixAddRow()] Matrix - invalid row number
+[06/26/2016 11:53:24][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/26/2016 11:54:29][              JobSchedule_MatrixAddRow()] Matrix - invalid row number
+[06/26/2016 11:54:29][             SBO_Application_ItemEvent()] Matrix - invalid row number
+[06/26/2016 12:30:17][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:30:47][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:31:03][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:31:07][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:31:12][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:31:31][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:31:46][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:31:50][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:32:07][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:32:15][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:32:58][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:33:05][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:33:26][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:33:51][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:34:05][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:34:30][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:34:57][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:40:44][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:41:24][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:41:39][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:41:43][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:41:48][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/26/2016 12:52:51][             SBO_Application_ItemEvent()] Form - Not found  [66000-9]
+[06/24/2016 19:34:07][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/24/2016 19:35:13][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/24/2016 19:35:16][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/24/2016 19:37:21][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/24/2016 19:37:28][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/24/2016 19:37:33][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/24/2016 19:37:47][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/27/2016 17:53:08][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/27/2016 19:25:56][             SBO_Application_ItemEvent()] Job Site Field. Cannot be Blank!.
+[06/27/2016 19:26:14][             SBO_Application_ItemEvent()] Prepared By ID Field. Cannot be Blank!.
+[06/27/2016 19:35:11][               Display_PurchaseRequest()] Data Source - Bad Data Source Offset
+[06/27/2016 19:35:11][             SBO_Application_ItemEvent()] Data Source - Bad Data Source Offset
+[06/28/2016 10:45:46][                    DuplicateJobSchedule] Valid Value - Value does not Exist  [66000-62]
+[06/28/2016 10:45:46][             SBO_Application_MenuEvent()] Valid Value - Value does not Exist  [66000-62]
+[06/28/2016 11:01:36][             SBO_Application_ItemEvent()] Conversion from string "20160810" to type 'Date' is not valid.
+[06/28/2016 11:04:57][             SBO_Application_ItemEvent()] Conversion from string "" to type 'Date' is not valid.
+[06/28/2016 12:52:09][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/28/2016 12:52:15][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[06/28/2016 14:05:11][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 14:42:50][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:09:27][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:10:43][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:14:55][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:17:57][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:48:04][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:48:15][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:51:12][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:53:28][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:55:58][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:56:07][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters
+[06/28/2016 16:56:12][               TaskSchedule_LoadValues()] Matrix - Invalid Parameters

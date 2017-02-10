@@ -1,0 +1,10 @@
+
+Validation Error!  The following Items are Duplicated / Existed Already  
+
+Line No.  Item Code        Item Description                                       Doc Number       Doc Line No.     
+====================================================================================================================
+ 
+1         CS9202           (1st Shift) Cafeteria                                    10314          1              
+ 
+====================================================================================================================
+Please Check.

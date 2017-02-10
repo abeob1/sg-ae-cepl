@@ -1,0 +1,114 @@
+﻿
+ALTER PROCEDURE [dbo].[AE_SP001_OpenPurchaseRequest_GoodIssue]
+
+@CheckBox char
+
+AS
+
+BEGIN
+ 
+select Cast(@CheckBox as varchar) [Select],T0.DocNum , T1.ItemCode,T1.Dscription ,T1.OcrCode ,T1.OcrCode2 ,T1.WhsCode ,
+T1.Quantity - T1.U_AB_IssueQty [Quantity] ,T1.PriceBefDi
+,'1470000113' [BaseType],T1.DocEntry ,T1.VisOrder  [LineNum] , T1.Quantity - T1.U_AB_IssueQty [Validation Qty]   from OPRQ T0
+INNER JOIN PRQ1 T1 ON T0.DocEntry =T1.DocEntry 
+where T0.U_AB_FillStatus ='Open'
+and (T1.Quantity -T1.U_AB_IssueQty )>0 AND T1.WhsCode = 'HQWH'
+ORDER BY cast(T0.DocNum as integer) , cast( T1.VisOrder as integer) 
+  
+END
+
+
+ALTER PROCEDURE [dbo].[AE_SP002_OpenPurchaseRequest_InventoryTransfer]
+
+@CheckBox char
+
+AS
+
+BEGIN
+ 
+select Cast(@CheckBox as varchar) [Select],T0.DocNum , T1.ItemCode,T1.Dscription ,T1.OcrCode ,T1.OcrCode2 ,T1.WhsCode ,
+T1.Quantity - T1.U_AB_TransferQty [Quantity],T1.PriceBefDi
+,'1470000113' [BaseType],T1.DocEntry ,T1.VisOrder [LineNum] , T1.Quantity - T1.U_AB_TransferQty [Validation Qty] from OPRQ T0
+INNER JOIN PRQ1 T1 ON T0.DocEntry =T1.DocEntry 
+where T0.U_AB_FillStatus ='Open' 
+and (T1.Quantity - T1.U_AB_TransferQty  )>0 AND T1.WhsCode <> 'HQWH'
+ORDER BY  cast(T0.DocNum as integer) , cast(T1.VisOrder as integer) 
+  
+END
+
+ALTER PROCEDURE [dbo].[AE_SP003_BudgetIssueQty]
+
+ --@ProjectCode Varchar(200),
+ --@Year varchar(5),
+ --@Month numeric(5),
+ --@ItemCode varchar(30),
+ @DocEntry varchar(20),
+ @LineId integer,
+ @Quantity numeric(19,2)
+
+AS
+
+BEGIN
+
+--Declare @DocEntry varchar(30)
+--Declare @LineNum varchar(3)
+Declare @IssueQty numeric(19,2)
+Declare @SQL varchar(8000)
+ 
+----SELECT @DocEntry = T1.[DocEntry], @LineNum = T1.[LineId], @IssueQty= T1.[U_IssueQty]  FROM [dbo].[@AB_STKBGT]  T0 inner join [dbo].[@AB_STKBGT1]  T1 on T0.Docentry = T1.Docentry 
+----WHERE T0.[U_OcrCode] = @ProjectCode and  left(T1.[U_BgtMonth],4) = @Year 
+----and right( T1.[U_BgtMonth],2 ) =  @Month and  T1.[U_ItemCode] = @ItemCode
+
+SELECT  @IssueQty= T1.[U_IssueQty]  FROM [dbo].[@AB_STKBGT1]  T1 where T1.Docentry = @DocEntry  and T1.LineId = @LineId 
+
+
+update [@AB_STKBGT1] set U_IssueQty = isnull(@IssueQty,0) + isnull(@Quantity,0) where DocEntry = @DocEntry and LineId = @LineId
+  
+END
+
+
+
+
+Notification
+
+if @object_type='MarketSegTemplate'  and (@transaction_type='A' or @transaction_type='U')
+begin
+update [@AB_MKTSGTTEMPLATE] set U_DocEntry = @list_of_cols_val_tab_del where DocEntry = @list_of_cols_val_tab_del
+end
+
+
+
+
+
+ALTER PROC [dbo].[SP045_UpdateSCH2]
+@DocEntry as varchar(20),
+@LineNo as int,
+@NextDate as varchar(20),
+@NewSchDate as varchar(20),
+@AlertHQ as varchar(20)
+as
+begin
+
+Declare @SCH3Date as date
+select @SCH3Date = U_ScheduleDate from [@AB_JOBSCH3] where DocEntry = @DocEntry and LineId = @LineNo 
+
+if not exists(select LineId  from [@AB_JOBSCH2] where U_ScheduleDate = @NextDate and DocEntry = @DocEntry )
+begin
+
+update [@AB_JOBSCH2] set U_ScheduleDate = @NextDate where U_ScheduleDate = @SCH3Date 
+end
+
+if isnull(@NewSchDate,'') = ''
+begin
+UPDATE [@AB_JOBSCH3] SET U_ScheduleDate = @NextDate
+                   WHERE DocEntry = @DocEntry AND LineId = @LineNo 
+end
+else 
+begin
+ UPDATE [@AB_JOBSCH3] SET U_NewSchedDate = @NewSchDate , U_AlertHQ = @AlertHQ,  U_ScheduleDate = @NextDate
+                   WHERE DocEntry = @DocEntry AND LineId = @LineNo 
+end
+
+
+
+end

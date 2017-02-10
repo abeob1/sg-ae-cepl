@@ -1,0 +1,29 @@
+[07/26/2015 15:43:35][              Display_ShowAroundMaster()] Cannot get information for an item when the form is not active  [66000-109]
+[07/26/2015 15:43:35][              Display_ShowAroundMaster()] Cannot get information for an item when the form is not active  [66000-109]
+[07/26/2015 15:43:42][              Display_ShowAroundMaster()] Cannot get information for an item when the form is not active  [66000-109]
+[07/26/2015 15:43:42][              Display_ShowAroundMaster()] Cannot get information for an item when the form is not active  [66000-109]
+[07/26/2015 16:02:06][             SBO_Application_ItemEvent()] Procedure call or argument is not valid.
+[07/26/2015 16:02:08][             SBO_Application_ItemEvent()] Procedure call or argument is not valid.
+[07/26/2015 16:03:09][             SBO_Application_ItemEvent()] File Does Not Exist
+[07/26/2015 16:03:14][             SBO_Application_ItemEvent()] File Does Not Exist
+[07/26/2015 16:03:15][             SBO_Application_ItemEvent()] File Does Not Exist
+[07/26/2015 18:36:26][          JobSchedule_FillTaskSchedule()] Object reference not set to an instance of an object.
+[07/26/2015 18:37:27][          JobSchedule_FillTaskSchedule()] Object reference not set to an instance of an object.
+[07/29/2015 12:54:58][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[07/29/2015 12:55:01][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[07/29/2015 19:34:51][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[07/29/2015 19:34:55][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[07/30/2015 18:25:24][             SBO_Application_ItemEvent()] Public member 'String' on type 'IPictureBox' not found.
+[07/30/2015 18:26:40][             SBO_Application_ItemEvent()] Public member 'String' on type 'IPictureBox' not found.
+[07/30/2015 19:34:33][             SBO_Application_ItemEvent()] File Does Not Exist
+[07/30/2015 19:34:40][             SBO_Application_ItemEvent()] File Does Not Exist
+[08/13/2015 18:05:51][             SBO_Application_ItemEvent()] Object variable or With block variable not set.
+[08/26/2015 20:21:48][             SBO_Application_ItemEvent()] Question Field. Cannot be Blank!. RowNo : 3
+[08/26/2015 20:39:34][             SBO_Application_ItemEvent()] Sub Category Text / Question Filed. Cannot be Blank!. RowNo : 1
+[12/21/2015 12:04:34][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[12/21/2015 12:04:39][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[12/21/2015 12:13:27][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[12/21/2015 12:13:32][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[12/21/2015 12:24:43][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[12/21/2015 12:24:48][            JobSchedule_ChooseFromList()] Item - Can't set value on item because the item can't get focus.  [66000-153]
+[12/21/2015 12:24:57][            JobSchedule_ChooseFromList()] Object reference not set to an instance of an object.
