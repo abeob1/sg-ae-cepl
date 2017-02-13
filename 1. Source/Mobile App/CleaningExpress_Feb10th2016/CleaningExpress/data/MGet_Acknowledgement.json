@@ -1,0 +1,10 @@
+[
+    {
+        "UserName": "manager",
+        "Password": "1234",
+        "EmployeeName": "John  Xavier",
+        "CompanyCode": "PWC_DEV",
+        "CompanyName": "Cleaning Express",
+        "Status": "SUCCESS"
+    }
+]

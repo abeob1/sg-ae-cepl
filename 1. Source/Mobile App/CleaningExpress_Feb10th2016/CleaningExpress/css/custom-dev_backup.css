@@ -1,0 +1,312 @@
+.black-mask {position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color: black;z-index: 1001;opacity: .60;filter: alpha(opacity=80);}
+.cHide{display: none;}
+#loader {position: absolute;left: 44%;top: 35%;width: 174px;height: 42px;padding: 14px;border-radius: 6px;z-index: 1003;}
+.cError{
+	width: 100%;
+	text-align: center;
+	color: red;
+}
+.availQ{
+	padding-top: 12px;
+	padding-left: 50%;
+}
+.reqQ{
+	margin-top: 10%;
+}
+
+.itemName{
+	display: block;
+}
+.itemDesc{
+/* 	display: block; */
+}
+.minus{
+	padding-left:2px;
+	color: #c9302c;
+	cursor: pointer;
+}
+.tick{
+	padding-left:2px;
+	cursor: pointer;
+}
+.fa-check-square-o{
+	color: #E77171;
+}
+.remarks{
+	width: 97%;
+}
+.remarkField{
+	margin-top:20px;
+	margin-bottom:20px !important;
+	padding-right:20px;
+}
+@media (max-width: 480px) {
+	#loader {
+		position: absolute;
+		left: 30%;
+		top: 25%;
+		width: 174px;
+		height: 42px;
+		padding: 14px;
+		border-radius: 6px;
+		z-index: 1003;
+	}
+	.itemDesc{
+		/* display: block; */
+	}
+}
+body{
+	font-family: Segoe UI;
+}
+body h3,h4{
+	font-family: Segoe UI;
+}
+#goodsDetail .view1{
+	padding-left: 13px;
+}
+
+#form-field-select-1{
+	padding: 0;
+}
+
+.rName{
+	font-weight: bold;
+}
+.pad20{
+	padding-left: 20px;
+}
+.questionsTxt{
+	font-size: 15px;
+}
+/* .items{
+	width:30px;
+} */
+.rQuantity{
+	/* width: 45px; */
+}
+
+
+.cRep{
+	padding-bottom: 13px;
+}
+.cRep input{
+	width: 96%;
+}
+
+.cLeft{
+	float: left;
+}
+.cRight{
+	float: right;
+	/* padding-right: 53px; */
+	padding-right: 3px;
+}
+
+.search-scroll{
+	overflow: auto;
+	max-height: 497px;
+}
+
+.fullList{
+	cursor: pointer;
+}
+.pad0{
+	padding: 0;
+}
+.sname{
+	padding: 0;
+}
+.uom{
+	padding-left: 30px;
+	width: 51px;
+}
+.uomH{
+	padding-left: 10px;
+}
+.btn-leftp{
+	margin: 0px 30px;
+}
+.uom1{
+	color:#000;
+	padding-right:15px;
+}
+/* .marginqtyEdit {
+  margin-left: -60px;
+} */
+.ticon{
+	margin-top: 20px;
+}
+
+#sigCapture{
+	border: 1px solid;
+	width: 100%;
+	height: 110px;
+	clear: none !important;
+	float: left;
+}
+.sigCapture{
+	border: 1px solid;
+	width: 100%;
+	height: 110px;
+	clear: none !important;
+	float: left;
+}
+#sigCaptureTask{
+	border: 1px solid;
+	width: 100%;
+	height: 110px !important;
+	clear: none !important;
+	float: left;
+}
+canvas .jSignature{
+	
+		height: 110px !important;
+}
+#clear{
+	cursor: pointer;
+}
+.clear{
+	cursor: pointer;
+}
+.fc-event{
+    cursor: pointer;
+}
+/*Remove tiny dot in calendar*/
+.fc-event .fc-event-title:before, .event-category:before{
+	display: none;
+}
+
+.mandatory{
+	box-shadow: 0 0 5px #E77171 !important;
+	padding: 3px 0px 3px 3px !important;
+	margin: 5px 1px 3px 0px !important;
+	border: 2px solid #E77171 !important;
+}
+
+/*Tablet*/
+@media (max-width: 767px) {
+	.uom{
+		padding-left: 20px;
+		width: 20px;
+	}
+	.uomH{
+		padding-left: 20px;
+	}
+	.list{
+		width: 100%;
+	}
+	.epsrow{
+		padding-right:10px;
+	}
+	.epsdate{
+		margin-left:-10px;
+	}
+}
+
+/*mobile css*/
+@media (min-width: 200px) and (max-width: 340px){
+
+	.uom{
+		padding-left: 5px;
+		width: 20px;
+	}
+	.uomH{
+		padding-left: 0px;
+	}
+	.btn-leftp{
+		margin: 0px 20px !important;
+	}
+	.remarks{
+		
+	}
+	canvas .jSignature{
+		height: 70px !important;
+	}
+	.marginqtyEdit {
+	  margin-left: 25px;
+	}
+}
+/*mobile css*/
+@media (min-width: 453px) and (max-width: 570px){
+	.epsname{
+		margin-left:-10px;
+	}
+}
+@media (min-width: 200px) and (max-width: 360px){
+	.taskList label{
+		margin-left:2px;
+		margin-right:15px;
+	}
+	.tasksign label{
+		margin-left:2px;
+		margin-right:15px;
+	}
+	.taskList .subtitle{
+		padding-left:10px;
+	}
+	.viewtask{
+		margin-left:-15px;
+	}
+	.fc-button {
+		position: relative;
+		display: inline-block;
+		padding: 0 .26em;
+		overflow: hidden;
+		height: 1.9em;
+		line-height: 1.9em;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+	.fc-header-left {
+	  position: absolute !important;
+	  top: 0;
+	  left: 0px;
+	  width: 50% !important;
+	}
+	.fc-header-right {
+	  position: absolute !important;
+	  top: 0;
+	  right: 0px;
+	  width: 50% !important;
+	}
+}
+@media (min-width: 341px) and (max-width: 440px) {
+.marginqtyEdit {
+	  margin-left: 25px;
+	}
+	.fc-header-left {
+	  position: absolute !important;
+	  top: 0;
+	  left: 0px;
+	  width: 50% !important;
+	}
+	.fc-header-right {
+	  position: absolute !important;
+	  top: 0;
+	  right: 0px;
+	  width: 50% !important;
+	}
+}
+@media (min-width: 441px) and (max-width: 500px) {
+.marginqtyEdit {
+	  margin-left: 35px;
+	}
+}
+@media (min-width: 501px) and (max-width: 600px) {
+.marginqtyEdit {
+	  margin-left: 40px;
+	}
+}
+@media (min-width: 601px) and (max-width:675px) {
+.marginqtyEdit {
+	  margin-left: 48px;
+	}
+}
+@media (min-width: 675px) and (max-width:767px) {
+.marginqtyEdit {
+	  margin-left: 55px;
+	}
+}
+.marg-btm{
+	margin-bottom:15px;
+}

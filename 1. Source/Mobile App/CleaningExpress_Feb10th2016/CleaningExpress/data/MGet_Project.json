@@ -1,0 +1,46 @@
+[
+    {
+        "PrcCode": "AAS",
+        "PrcName": "AAS"
+    },
+    {
+        "PrcCode": "ADV",
+        "PrcName": "ADVISORY"
+    },
+    {
+        "PrcCode": "ADV_CON",
+        "PrcName": "ADVISORY CON"
+    },
+    {
+        "PrcCode": "ASR",
+        "PrcName": "ASSURANCE"
+    },
+    {
+        "PrcCode": "Centr_z",
+        "PrcName": "General Centre"
+    },
+    {
+        "PrcCode": "IFS",
+        "PrcName": "IFS"
+    },
+    {
+        "PrcCode": "MYCO",
+        "PrcName": "Myanmar Co"
+    },
+    {
+        "PrcCode": "TAX",
+        "PrcName": "Tax"
+    },
+    {
+        "PrcCode": "TAX IAS7",
+        "PrcName": "TAX IAS7"
+    },
+    {
+        "PrcCode": "USTX",
+        "PrcName": "US TAX"
+    },
+    {
+        "PrcCode": "WMS",
+        "PrcName": "WMS"
+    }
+]

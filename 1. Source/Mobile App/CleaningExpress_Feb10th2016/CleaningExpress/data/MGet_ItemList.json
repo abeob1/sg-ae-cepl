@@ -1,0 +1,22 @@
+[
+    {
+        "ItemCode": "ITM001",
+        "ItemName": "Testing1"
+    },
+    {
+        "ItemCode": "ITM002",
+        "ItemName": "Testing2"
+    },
+    {
+        "ItemCode": "ITM003",
+        "ItemName": "Testing3"
+    },
+    {
+        "ItemCode": "ITM004",
+        "ItemName": "Testing4"
+    },
+    {
+        "ItemCode": "ITM005",
+        "ItemName": "Testing5"
+    }
+]
